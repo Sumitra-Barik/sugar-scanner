@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Smart Sugar Scanner</title>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+
+<div class="sidebar">
+  <div class="side-icon active">🏠</div>
+  <div class="side-icon">📷</div>
+  <div class="side-icon">📊</div>
+  <div class="side-icon">⚙️</div>
+</div>
+
+<div class="main-wrapper">
+
+<header class="header">
+  <div class="header-inner">
+
+    <div class="header-left">
+      <div class="logo">🍭</div>
+      <div>
+        <h1>Smart Sugar Scanner</h1>
+        <p>Scan. Analyze. Stay Healthy.</p>
+      </div>
+    </div>
+
+    <div class="header-right">
+      <div class="demo-badge">Demo Mode</div>
+      <button class="header-btn">Reset</button>
+      <div class="live-dot"></div>
+    </div>
+
+  </div>
+</header>
+
+<main class="container">
+  <div class="grid">
+
+    <!-- LEFT -->
+    <div>
+      <section class="card scan-card">
+        <div class="camera-box">
+          <video id="cameraPreview" autoplay playsinline></video>
+        </div>
+
+        <button id="scanBtn" class="btn">Start Scan</button>
+        <button id="captureBtn" class="btn secondary">Capture</button>
+
+        <div id="loading" class="loading">
+          <div class="spinner"></div>
+          <p>Analyzing Product...</p>
+        </div>
+      </section>
+
+      <section id="resultSection" class="card hidden">
+        <h2 id="productName"></h2>
+
+        <div class="nutrition">
+          <div>Sugar: <strong id="sugarVal"></strong></div>
+          <div>Calories: <strong id="calVal"></strong></div>
+          <div>Fat: <strong id="fatVal"></strong></div>
+          <div>Carbs: <strong id="carbVal"></strong></div>
+        </div>
+
+        <div class="progress-bar">
+          <div id="indicatorFill"></div>
+        </div>
+
+        <p id="sugarWarning" class="warning hidden">
+          ⚠️ High Sugar Content – Consume Carefully
+        </p>
+      </section>
+    </div>
+
+    <!-- RIGHT -->
+    <div>
+      <section class="card tracker">
+
+        <h2>Today's Consumption</h2>
+
+        <div class="stats-grid">
+          <div class="mini-card">
+            <span>Products</span>
+            <strong id="count">0</strong>
+          </div>
+          <div class="mini-card">
+            <span>Total Sugar</span>
+            <strong id="totalSugar">0g</strong>
+          </div>
+          <div class="mini-card">
+            <span>Total Calories</span>
+            <strong id="totalCal">0 kcal</strong>
+          </div>
+        </div>
+
+        <div class="circle-wrapper">
+          <svg width="160" height="160">
+            <circle cx="80" cy="80" r="65" class="circle-bg"/>
+            <circle cx="80" cy="80" r="65" id="circleProgress" class="circle-fill"/>
+          </svg>
+
+          <div class="circle-text">
+            <div id="circleValue" class="circle-value">0g</div>
+            <div class="circle-label">of 50g</div>
+          </div>
+        </div>
+
+        <p id="limitWarning" class="warning hidden">
+          🚨 Sugar limit exceeded!
+        </p>
+
+        <div class="health-box">
+          Health Score
+          <div id="healthScore" class="health-score-big">100</div>
+        </div>
+
+      </section>
+    </div>
+
+  </div>
+</main>
+
+<footer class="footer">
+  © 2026 Smart Sugar Scanner – Demo Version
+</footer>
+
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
