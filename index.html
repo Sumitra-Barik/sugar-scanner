@@ -43,17 +43,39 @@
     <!-- LEFT -->
     <div>
       <section class="card scan-card">
-        <div class="camera-box">
-          <video id="cameraPreview" autoplay playsinline></video>
+        <div class="camera-box" style="position:relative; width:200px; height:150px; margin:auto; background:#0f172a; border-radius:12px; overflow:hidden;">
+          
+          <video id="cameraPreview" autoplay playsinline 
+            style="width:100%; height:100%; display:none;"></video>
+
+          <!-- Scan Overlay -->
+          <div id="scanOverlay" 
+            style="position:absolute; top:0; left:0; width:100%; height:100%; display:none; pointer-events:none;">
+            
+            <div style="
+              width:100%;
+              height:3px;
+              background:#22c55e;
+              box-shadow:0 0 10px #22c55e;
+              animation:scanMove 2s linear infinite;">
+            </div>
+
+          </div>
+
         </div>
 
         <button id="scanBtn" class="btn">Start Scan</button>
-        <button id="captureBtn" class="btn secondary">Capture</button>
+        <button id="captureBtn" class="btn secondary" style="display:none;">Capture</button>
 
-        <div id="loading" class="loading">
-          <div class="spinner"></div>
-          <p>Analyzing Product...</p>
-        </div>
+        <!-- Keyframe Animation -->
+        <style>
+          @keyframes scanMove{
+            0%{ transform:translateY(0); }
+            50%{ transform:translateY(140px); }
+            100%{ transform:translateY(0); }
+          }
+        </style>
+
       </section>
 
       <section id="resultSection" class="card hidden">
